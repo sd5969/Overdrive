@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		97A4584B2189732C00901878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4584A2189732C00901878 /* AppDelegate.swift */; };
+		97A4584D2189732C00901878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4584C2189732C00901878 /* ViewController.swift */; };
+		97A458502189732C00901878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97A4584E2189732C00901878 /* Main.storyboard */; };
+		97A458522189733100901878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97A458512189733100901878 /* Assets.xcassets */; };
+		97A458552189733100901878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97A458532189733100901878 /* LaunchScreen.storyboard */; };
+		97A458602189733100901878 /* OverdriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4585F2189733100901878 /* OverdriveTests.swift */; };
+		97A4586B2189733100901878 /* OverdriveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4586A2189733100901878 /* OverdriveUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		97A4585C2189733100901878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97A4583F2189732C00901878 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97A458462189732C00901878;
+			remoteInfo = Overdrive;
+		};
+		97A458672189733100901878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97A4583F2189732C00901878 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97A458462189732C00901878;
+			remoteInfo = Overdrive;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		97A458472189732C00901878 /* Overdrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overdrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A4584A2189732C00901878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		97A4584C2189732C00901878 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		97A4584F2189732C00901878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		97A458512189733100901878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		97A458542189733100901878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		97A458562189733100901878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97A4585B2189733100901878 /* OverdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OverdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A4585F2189733100901878 /* OverdriveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverdriveTests.swift; sourceTree = "<group>"; };
+		97A458612189733100901878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97A458662189733100901878 /* OverdriveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OverdriveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A4586A2189733100901878 /* OverdriveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverdriveUITests.swift; sourceTree = "<group>"; };
+		97A4586C2189733100901878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		97A458442189732C00901878 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A458582189733100901878 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A458632189733100901878 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		97A4583E2189732C00901878 = {
+			isa = PBXGroup;
+			children = (
+				97A458492189732C00901878 /* Overdrive */,
+				97A4585E2189733100901878 /* OverdriveTests */,
+				97A458692189733100901878 /* OverdriveUITests */,
+				97A458482189732C00901878 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		97A458482189732C00901878 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				97A458472189732C00901878 /* Overdrive.app */,
+				97A4585B2189733100901878 /* OverdriveTests.xctest */,
+				97A458662189733100901878 /* OverdriveUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		97A458492189732C00901878 /* Overdrive */ = {
+			isa = PBXGroup;
+			children = (
+				97A4584A2189732C00901878 /* AppDelegate.swift */,
+				97A4584C2189732C00901878 /* ViewController.swift */,
+				97A4584E2189732C00901878 /* Main.storyboard */,
+				97A458512189733100901878 /* Assets.xcassets */,
+				97A458532189733100901878 /* LaunchScreen.storyboard */,
+				97A458562189733100901878 /* Info.plist */,
+			);
+			path = Overdrive;
+			sourceTree = "<group>";
+		};
+		97A4585E2189733100901878 /* OverdriveTests */ = {
+			isa = PBXGroup;
+			children = (
+				97A4585F2189733100901878 /* OverdriveTests.swift */,
+				97A458612189733100901878 /* Info.plist */,
+			);
+			path = OverdriveTests;
+			sourceTree = "<group>";
+		};
+		97A458692189733100901878 /* OverdriveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				97A4586A2189733100901878 /* OverdriveUITests.swift */,
+				97A4586C2189733100901878 /* Info.plist */,
+			);
+			path = OverdriveUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		97A458462189732C00901878 /* Overdrive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97A4586F2189733100901878 /* Build configuration list for PBXNativeTarget "Overdrive" */;
+			buildPhases = (
+				97A458432189732C00901878 /* Sources */,
+				97A458442189732C00901878 /* Frameworks */,
+				97A458452189732C00901878 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Overdrive;
+			productName = Overdrive;
+			productReference = 97A458472189732C00901878 /* Overdrive.app */;
+			productType = "com.apple.product-type.application";
+		};
+		97A4585A2189733100901878 /* OverdriveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97A458722189733100901878 /* Build configuration list for PBXNativeTarget "OverdriveTests" */;
+			buildPhases = (
+				97A458572189733100901878 /* Sources */,
+				97A458582189733100901878 /* Frameworks */,
+				97A458592189733100901878 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				97A4585D2189733100901878 /* PBXTargetDependency */,
+			);
+			name = OverdriveTests;
+			productName = OverdriveTests;
+			productReference = 97A4585B2189733100901878 /* OverdriveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		97A458652189733100901878 /* OverdriveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97A458752189733100901878 /* Build configuration list for PBXNativeTarget "OverdriveUITests" */;
+			buildPhases = (
+				97A458622189733100901878 /* Sources */,
+				97A458632189733100901878 /* Frameworks */,
+				97A458642189733100901878 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				97A458682189733100901878 /* PBXTargetDependency */,
+			);
+			name = OverdriveUITests;
+			productName = OverdriveUITests;
+			productReference = 97A458662189733100901878 /* OverdriveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		97A4583F2189732C00901878 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Sanjit Dutta";
+				TargetAttributes = {
+					97A458462189732C00901878 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					97A4585A2189733100901878 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 97A458462189732C00901878;
+					};
+					97A458652189733100901878 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 97A458462189732C00901878;
+					};
+				};
+			};
+			buildConfigurationList = 97A458422189732C00901878 /* Build configuration list for PBXProject "Overdrive" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 97A4583E2189732C00901878;
+			productRefGroup = 97A458482189732C00901878 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				97A458462189732C00901878 /* Overdrive */,
+				97A4585A2189733100901878 /* OverdriveTests */,
+				97A458652189733100901878 /* OverdriveUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		97A458452189732C00901878 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97A458552189733100901878 /* LaunchScreen.storyboard in Resources */,
+				97A458522189733100901878 /* Assets.xcassets in Resources */,
+				97A458502189732C00901878 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A458592189733100901878 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A458642189733100901878 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		97A458432189732C00901878 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97A4584D2189732C00901878 /* ViewController.swift in Sources */,
+				97A4584B2189732C00901878 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A458572189733100901878 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97A458602189733100901878 /* OverdriveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A458622189733100901878 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97A4586B2189733100901878 /* OverdriveUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		97A4585D2189733100901878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97A458462189732C00901878 /* Overdrive */;
+			targetProxy = 97A4585C2189733100901878 /* PBXContainerItemProxy */;
+		};
+		97A458682189733100901878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97A458462189732C00901878 /* Overdrive */;
+			targetProxy = 97A458672189733100901878 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		97A4584E2189732C00901878 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97A4584F2189732C00901878 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		97A458532189733100901878 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97A458542189733100901878 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		97A4586D2189733100901878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		97A4586E2189733100901878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		97A458702189733100901878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U49F3CS6TZ;
+				INFOPLIST_FILE = Overdrive/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdlynx.Overdrive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		97A458712189733100901878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U49F3CS6TZ;
+				INFOPLIST_FILE = Overdrive/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdlynx.Overdrive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		97A458732189733100901878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U49F3CS6TZ;
+				INFOPLIST_FILE = OverdriveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdlynx.OverdriveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Overdrive.app/Overdrive";
+			};
+			name = Debug;
+		};
+		97A458742189733100901878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U49F3CS6TZ;
+				INFOPLIST_FILE = OverdriveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdlynx.OverdriveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Overdrive.app/Overdrive";
+			};
+			name = Release;
+		};
+		97A458762189733100901878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U49F3CS6TZ;
+				INFOPLIST_FILE = OverdriveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdlynx.OverdriveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Overdrive;
+			};
+			name = Debug;
+		};
+		97A458772189733100901878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U49F3CS6TZ;
+				INFOPLIST_FILE = OverdriveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdlynx.OverdriveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Overdrive;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		97A458422189732C00901878 /* Build configuration list for PBXProject "Overdrive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97A4586D2189733100901878 /* Debug */,
+				97A4586E2189733100901878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97A4586F2189733100901878 /* Build configuration list for PBXNativeTarget "Overdrive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97A458702189733100901878 /* Debug */,
+				97A458712189733100901878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97A458722189733100901878 /* Build configuration list for PBXNativeTarget "OverdriveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97A458732189733100901878 /* Debug */,
+				97A458742189733100901878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97A458752189733100901878 /* Build configuration list for PBXNativeTarget "OverdriveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97A458762189733100901878 /* Debug */,
+				97A458772189733100901878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 97A4583F2189732C00901878 /* Project object */;
+}
