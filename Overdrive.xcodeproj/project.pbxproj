@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		977F368A218BEA4D004311B4 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977F3689218BEA4D004311B4 /* RatingControl.swift */; };
 		97A4584B2189732C00901878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4584A2189732C00901878 /* AppDelegate.swift */; };
-		97A4584D2189732C00901878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4584C2189732C00901878 /* ViewController.swift */; };
+		97A4584D2189732C00901878 /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4584C2189732C00901878 /* ServerViewController.swift */; };
 		97A458502189732C00901878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97A4584E2189732C00901878 /* Main.storyboard */; };
 		97A458522189733100901878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97A458512189733100901878 /* Assets.xcassets */; };
 		97A458552189733100901878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97A458532189733100901878 /* LaunchScreen.storyboard */; };
 		97A458602189733100901878 /* OverdriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4585F2189733100901878 /* OverdriveTests.swift */; };
 		97A4586B2189733100901878 /* OverdriveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4586A2189733100901878 /* OverdriveUITests.swift */; };
+		97BB9E8C218E28F700BCF775 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB9E8B218E28F700BCF775 /* Server.swift */; };
+		97FB5F20218E4C9400EC75A7 /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB5F1F218E4C9400EC75A7 /* ServerTableViewCell.swift */; };
+		97FB5F22218E54F900EC75A7 /* ServerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB5F21218E54F900EC75A7 /* ServerTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		977F3689218BEA4D004311B4 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		97A458472189732C00901878 /* Overdrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overdrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A4584A2189732C00901878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		97A4584C2189732C00901878 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		97A4584C2189732C00901878 /* ServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
 		97A4584F2189732C00901878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97A458512189733100901878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97A458542189733100901878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,9 @@
 		97A458662189733100901878 /* OverdriveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OverdriveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A4586A2189733100901878 /* OverdriveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverdriveUITests.swift; sourceTree = "<group>"; };
 		97A4586C2189733100901878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97BB9E8B218E28F700BCF775 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		97FB5F1F218E4C9400EC75A7 /* ServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
+		97FB5F21218E54F900EC75A7 /* ServerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +106,14 @@
 			isa = PBXGroup;
 			children = (
 				97A4584A2189732C00901878 /* AppDelegate.swift */,
-				97A4584C2189732C00901878 /* ViewController.swift */,
+				97A4584C2189732C00901878 /* ServerViewController.swift */,
+				977F3689218BEA4D004311B4 /* RatingControl.swift */,
+				97BB9E8B218E28F700BCF775 /* Server.swift */,
+				97FB5F1F218E4C9400EC75A7 /* ServerTableViewCell.swift */,
+				97FB5F21218E54F900EC75A7 /* ServerTableViewController.swift */,
 				97A4584E2189732C00901878 /* Main.storyboard */,
-				97A458512189733100901878 /* Assets.xcassets */,
 				97A458532189733100901878 /* LaunchScreen.storyboard */,
+				97A458512189733100901878 /* Assets.xcassets */,
 				97A458562189733100901878 /* Info.plist */,
 			);
 			path = Overdrive;
@@ -256,7 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97A4584D2189732C00901878 /* ViewController.swift in Sources */,
+				97FB5F22218E54F900EC75A7 /* ServerTableViewController.swift in Sources */,
+				97FB5F20218E4C9400EC75A7 /* ServerTableViewCell.swift in Sources */,
+				97A4584D2189732C00901878 /* ServerViewController.swift in Sources */,
+				977F368A218BEA4D004311B4 /* RatingControl.swift in Sources */,
+				97BB9E8C218E28F700BCF775 /* Server.swift in Sources */,
 				97A4584B2189732C00901878 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

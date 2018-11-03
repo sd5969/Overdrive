@@ -1,24 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MZg-YX-l4B">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Server Table View Controller-->
+        <scene sceneID="EJs-eZ-GTa">
+            <objects>
+                <tableViewController id="MZg-YX-l4B" customClass="ServerTableViewController" customModule="Overdrive" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="a6t-Gc-hsR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ServerTableViewCell" rowHeight="90" id="TjV-kd-a2R" customClass="ServerTableViewCell" customModule="Overdrive" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TjV-kd-a2R" id="5Oa-hT-Zka">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="0kB-70-H7C">
+                                            <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="89.666666666666671"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="0kB-70-H7C" secondAttribute="height" multiplier="1:1" id="yQA-HR-OBf"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFy-16-GnG">
+                                            <rect key="frame" x="97.666666666666657" y="8" width="277.33333333333337" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="Tmu-BL-hw8"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="left" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BUB-Z3-0yr" customClass="RatingControl" customModule="Overdrive" customModuleProvider="target">
+                                            <rect key="frame" x="97.666666666666686" y="36" width="252" height="44"/>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="DFy-16-GnG" firstAttribute="leading" secondItem="0kB-70-H7C" secondAttribute="trailing" constant="8" id="0mX-uA-Gn5"/>
+                                        <constraint firstAttribute="trailing" secondItem="DFy-16-GnG" secondAttribute="trailing" id="1RC-DI-MtA"/>
+                                        <constraint firstItem="0kB-70-H7C" firstAttribute="top" secondItem="5Oa-hT-Zka" secondAttribute="top" id="38d-lN-VDH"/>
+                                        <constraint firstItem="DFy-16-GnG" firstAttribute="top" secondItem="5Oa-hT-Zka" secondAttribute="top" constant="8" id="BF2-kJ-snj"/>
+                                        <constraint firstAttribute="bottom" secondItem="0kB-70-H7C" secondAttribute="bottom" id="DPv-ZO-iXQ"/>
+                                        <constraint firstItem="BUB-Z3-0yr" firstAttribute="top" secondItem="DFy-16-GnG" secondAttribute="bottom" constant="8" id="FI5-lP-ks6"/>
+                                        <constraint firstItem="0kB-70-H7C" firstAttribute="leading" secondItem="5Oa-hT-Zka" secondAttribute="leading" id="Uxj-7c-zdl"/>
+                                        <constraint firstItem="BUB-Z3-0yr" firstAttribute="leading" secondItem="0kB-70-H7C" secondAttribute="trailing" constant="8" id="fBh-3C-1Uc"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="DFy-16-GnG" id="eau-p7-tE5"/>
+                                    <outlet property="photoImageView" destination="0kB-70-H7C" id="0Yc-gU-IU8"/>
+                                    <outlet property="ratingControl" destination="BUB-Z3-0yr" id="x8T-PE-vzA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MZg-YX-l4B" id="13c-eX-CB7"/>
+                            <outlet property="delegate" destination="MZg-YX-l4B" id="t0M-ai-DmW"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rbe-3q-vb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-892" y="30.295566502463057"/>
+        </scene>
+        <!--Server View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ServerViewController" customModule="Overdrive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TwU-s0-o8n">
+                                <rect key="frame" x="20" y="64" width="335" height="431"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Server Hostname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w34-tm-fPd">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="fPX-sU-km6">
+                                        <rect key="frame" x="0.0" y="38" width="335" height="335"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="fPX-sU-km6" secondAttribute="height" multiplier="1:1" id="wCj-37-hyt"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="BOo-ez-rsE" appends="YES" id="QrG-3B-6IO"/>
+                                        </connections>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="redraw" insetsLayoutMarginsFromSafeArea="NO" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BZp-ot-AFl" customClass="RatingControl" customModule="Overdrive" customModuleProvider="target">
+                                        <rect key="frame" x="41.666666666666657" y="381" width="251.99999999999997" height="50"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fPX-sU-km6" secondAttribute="trailing" id="2NF-mC-tPC"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="w34-tm-fPd" secondAttribute="trailing" id="jwO-Gj-pPX"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="TwU-s0-o8n" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mbT-Af-0xv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TwU-s0-o8n" secondAttribute="trailing" id="r2m-80-Mcp"/>
+                            <constraint firstItem="TwU-s0-o8n" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="t19-8N-SHC"/>
+                        </constraints>
+                        <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
+                        <viewLayoutGuide key="safeArea" id="Qsx-DO-pnQ"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="w34-tm-fPd" id="fSB-4v-B92"/>
+                        <outlet property="photoImageView" destination="fPX-sU-km6" id="e8G-1Q-6te"/>
+                        <outlet property="ratingControl" destination="BZp-ot-AFl" id="SfI-sC-SDv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BOo-ez-rsE">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="V96-WZ-Im7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="320" height="320"/>
+    </resources>
 </document>
