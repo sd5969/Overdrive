@@ -14,6 +14,17 @@ class ServerTableViewController: UITableViewController {
     
     var servers = [Server]()
     
+    //MARK: Actions
+    
+    @IBAction func unwindToServerList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ServerViewController, let server = sourceViewController.server {
+            // Add a new server.
+            let newIndexPath = IndexPath(row: servers.count, section: 0)
+            servers.append(server)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
     //MARK: Private Methods
     
     private func loadSampleServers() {

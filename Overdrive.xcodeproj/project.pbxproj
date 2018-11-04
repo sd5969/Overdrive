@@ -55,6 +55,7 @@
 		97BB9E8B218E28F700BCF775 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		97FB5F1F218E4C9400EC75A7 /* ServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
 		97FB5F21218E54F900EC75A7 /* ServerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTableViewController.swift; sourceTree = "<group>"; };
+		97FB5F23218E594400EC75A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 		97A4583E2189732C00901878 = {
 			isa = PBXGroup;
 			children = (
+				97FB5F23218E594400EC75A7 /* README.md */,
 				97A458492189732C00901878 /* Overdrive */,
 				97A4585E2189733100901878 /* OverdriveTests */,
 				97A458692189733100901878 /* OverdriveUITests */,

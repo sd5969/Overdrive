@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MZg-YX-l4B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FHW-1X-WdX">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Server Table View Controller-->
+        <!--Your Servers-->
         <scene sceneID="EJs-eZ-GTa">
             <objects>
                 <tableViewController id="MZg-YX-l4B" customClass="ServerTableViewController" customModule="Overdrive" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,12 +67,19 @@
                             <outlet property="delegate" destination="MZg-YX-l4B" id="t0M-ai-DmW"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Your Servers" id="2j3-Bp-zdn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pn4-oR-K3j">
+                            <connections>
+                                <segue destination="wOr-mw-ua8" kind="presentation" identifier="AddItem" id="inI-qW-6K4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rbe-3q-vb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-892" y="30.295566502463057"/>
+            <point key="canvasLocation" x="50.399999999999999" y="30.295566502463057"/>
         </scene>
-        <!--Server View Controller-->
+        <!--New Server-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ServerViewController" customModule="Overdrive" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,7 +88,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TwU-s0-o8n">
-                                <rect key="frame" x="20" y="64" width="335" height="431"/>
+                                <rect key="frame" x="20" y="108" width="335" height="431"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Server Hostname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w34-tm-fPd">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -118,20 +125,70 @@
                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
                         <viewLayoutGuide key="safeArea" id="Qsx-DO-pnQ"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Server" id="36R-jJ-Aw5">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NDW-pN-FZI">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="n1E-f9-kkw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6hR-aD-Vah">
+                            <connections>
+                                <segue destination="YNP-tC-pIc" kind="unwind" unwindAction="unwindToServerListWithSender:" id="hnL-qg-rwe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="w34-tm-fPd" id="fSB-4v-B92"/>
                         <outlet property="photoImageView" destination="fPX-sU-km6" id="e8G-1Q-6te"/>
                         <outlet property="ratingControl" destination="BZp-ot-AFl" id="SfI-sC-SDv"/>
+                        <outlet property="saveButton" destination="6hR-aD-Vah" id="l19-hK-UEu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="YNP-tC-pIc" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="BOo-ez-rsE">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="V96-WZ-Im7"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
+            <point key="canvasLocation" x="1938.4000000000001" y="25.862068965517242"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bKu-hV-TRm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FHW-1X-WdX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="39f-8h-xl6">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MZg-YX-l4B" kind="relationship" relationship="rootViewController" id="Zps-eb-YUd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kz0-iZ-bmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-892" y="30.295566502463057"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lhM-wj-Fad">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wOr-mw-ua8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hca-ZQ-QHI">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="r0Y-lG-ruV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c8K-SJ-zvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="25.862068965517242"/>
         </scene>
     </scenes>
     <resources>
