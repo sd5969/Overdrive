@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class ServerTableViewController: UITableViewController {
     
@@ -18,10 +19,22 @@ class ServerTableViewController: UITableViewController {
     
     @IBAction func unwindToServerList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ServerViewController, let server = sourceViewController.server {
-            // Add a new server.
-            let newIndexPath = IndexPath(row: servers.count, section: 0)
-            servers.append(server)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing server.
+                servers[selectedIndexPath.row] = server
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            
+            else {
+                // Add a new server.
+                let newIndexPath = IndexPath(row: servers.count, section: 0)
+                servers.append(server)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+            
+            // Save the servers.
+            saveServers()
         }
     }
     
@@ -47,12 +60,36 @@ class ServerTableViewController: UITableViewController {
         servers += [server1, server2, server3]
         
     }
+    
+    private func saveServers() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(servers, toFile: Server.ArchiveURL.path)
+        
+        if isSuccessfulSave {
+            os_log("Servers successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save server...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadServers() -> [Server]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Server.ArchiveURL.path) as? [Server]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load the sample data.
-        loadSampleServers()
+        // Use the edit button item provided by the table view controller.
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        // Load any saved meals, otherwise load sample data.
+        if let savedServers = loadServers() {
+            servers += savedServers
+        }
+        
+        else {
+            // Load the sample data.
+            loadSampleServers()
+        }
     }
 
     // MARK: - Table view data source
@@ -86,25 +123,25 @@ class ServerTableViewController: UITableViewController {
     }
     
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            servers.remove(at: indexPath.row)
+            saveServers()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        
+        
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -121,14 +158,35 @@ class ServerTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+        case "AddItem":
+            os_log("Adding a new server.", log: OSLog.default, type: .debug)
+        
+        case "ShowDetail":
+            guard let serverDetailViewController = segue.destination as? ServerViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedServerCell = sender as? ServerTableViewCell else {
+                fatalError("Unexpected sender: \(sender as Optional)")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedServerCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedServer = servers[indexPath.row]
+            serverDetailViewController.server = selectedServer
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier as Optional)")
+        }
     }
-    */
 
 }
