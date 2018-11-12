@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		977F368A218BEA4D004311B4 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977F3689218BEA4D004311B4 /* RatingControl.swift */; };
 		97A4584B2189732C00901878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4584A2189732C00901878 /* AppDelegate.swift */; };
 		97A4584D2189732C00901878 /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4584C2189732C00901878 /* ServerViewController.swift */; };
 		97A458502189732C00901878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97A4584E2189732C00901878 /* Main.storyboard */; };
@@ -16,6 +15,12 @@
 		97A458602189733100901878 /* OverdriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4585F2189733100901878 /* OverdriveTests.swift */; };
 		97A4586B2189733100901878 /* OverdriveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4586A2189733100901878 /* OverdriveUITests.swift */; };
 		97BB9E8C218E28F700BCF775 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB9E8B218E28F700BCF775 /* Server.swift */; };
+		97F60D4021990B26004F8C69 /* TorrentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D3F21990B26004F8C69 /* TorrentTableViewController.swift */; };
+		97F60D4221990B36004F8C69 /* PathTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D4121990B36004F8C69 /* PathTableViewController.swift */; };
+		97F60D4421990C07004F8C69 /* TorrentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D4321990C07004F8C69 /* TorrentTableViewCell.swift */; };
+		97F60D4621990C10004F8C69 /* PathTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D4521990C10004F8C69 /* PathTableViewCell.swift */; };
+		97F60D4821990D38004F8C69 /* Torrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D4721990D38004F8C69 /* Torrent.swift */; };
+		97F60D4A21990D42004F8C69 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D4921990D42004F8C69 /* Path.swift */; };
 		97FB5F20218E4C9400EC75A7 /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB5F1F218E4C9400EC75A7 /* ServerTableViewCell.swift */; };
 		97FB5F22218E54F900EC75A7 /* ServerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB5F21218E54F900EC75A7 /* ServerTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -38,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		977F3689218BEA4D004311B4 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		97A458472189732C00901878 /* Overdrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overdrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A4584A2189732C00901878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97A4584C2189732C00901878 /* ServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +57,12 @@
 		97A4586A2189733100901878 /* OverdriveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverdriveUITests.swift; sourceTree = "<group>"; };
 		97A4586C2189733100901878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97BB9E8B218E28F700BCF775 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		97F60D3F21990B26004F8C69 /* TorrentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTableViewController.swift; sourceTree = "<group>"; };
+		97F60D4121990B36004F8C69 /* PathTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTableViewController.swift; sourceTree = "<group>"; };
+		97F60D4321990C07004F8C69 /* TorrentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTableViewCell.swift; sourceTree = "<group>"; };
+		97F60D4521990C10004F8C69 /* PathTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTableViewCell.swift; sourceTree = "<group>"; };
+		97F60D4721990D38004F8C69 /* Torrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Torrent.swift; sourceTree = "<group>"; };
+		97F60D4921990D42004F8C69 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		97FB5F1F218E4C9400EC75A7 /* ServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
 		97FB5F21218E54F900EC75A7 /* ServerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTableViewController.swift; sourceTree = "<group>"; };
 		97FB5F23218E594400EC75A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -108,11 +118,16 @@
 			isa = PBXGroup;
 			children = (
 				97A4584A2189732C00901878 /* AppDelegate.swift */,
-				97A4584C2189732C00901878 /* ServerViewController.swift */,
-				977F3689218BEA4D004311B4 /* RatingControl.swift */,
 				97BB9E8B218E28F700BCF775 /* Server.swift */,
-				97FB5F1F218E4C9400EC75A7 /* ServerTableViewCell.swift */,
+				97F60D4721990D38004F8C69 /* Torrent.swift */,
+				97F60D4921990D42004F8C69 /* Path.swift */,
+				97A4584C2189732C00901878 /* ServerViewController.swift */,
 				97FB5F21218E54F900EC75A7 /* ServerTableViewController.swift */,
+				97FB5F1F218E4C9400EC75A7 /* ServerTableViewCell.swift */,
+				97F60D3F21990B26004F8C69 /* TorrentTableViewController.swift */,
+				97F60D4321990C07004F8C69 /* TorrentTableViewCell.swift */,
+				97F60D4121990B36004F8C69 /* PathTableViewController.swift */,
+				97F60D4521990C10004F8C69 /* PathTableViewCell.swift */,
 				97A4584E2189732C00901878 /* Main.storyboard */,
 				97A458532189733100901878 /* LaunchScreen.storyboard */,
 				97A458512189733100901878 /* Assets.xcassets */,
@@ -270,11 +285,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F60D4021990B26004F8C69 /* TorrentTableViewController.swift in Sources */,
+				97F60D4A21990D42004F8C69 /* Path.swift in Sources */,
 				97FB5F22218E54F900EC75A7 /* ServerTableViewController.swift in Sources */,
+				97F60D4621990C10004F8C69 /* PathTableViewCell.swift in Sources */,
 				97FB5F20218E4C9400EC75A7 /* ServerTableViewCell.swift in Sources */,
+				97F60D4821990D38004F8C69 /* Torrent.swift in Sources */,
 				97A4584D2189732C00901878 /* ServerViewController.swift in Sources */,
-				977F368A218BEA4D004311B4 /* RatingControl.swift in Sources */,
 				97BB9E8C218E28F700BCF775 /* Server.swift in Sources */,
+				97F60D4221990B36004F8C69 /* PathTableViewController.swift in Sources */,
+				97F60D4421990C07004F8C69 /* TorrentTableViewCell.swift in Sources */,
 				97A4584B2189732C00901878 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +473,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U49F3CS6TZ;
 				INFOPLIST_FILE = Overdrive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,6 +492,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U49F3CS6TZ;
 				INFOPLIST_FILE = Overdrive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,18 +1,19 @@
 //
-//  ServerTableViewCell.swift
+//  TorrentTableViewCell.swift
 //  Overdrive
 //
-//  Created by Sanjit Dutta on 11/3/18.
+//  Created by Sanjit Dutta on 11/11/18.
 //  Copyright © 2018 Sanjit Dutta. All rights reserved.
 //
 
 import UIKit
 
-class ServerTableViewCell: UITableViewCell {
+class TorrentTableViewCell: UITableViewCell {
+
+    // MARK: Properties
     
-    //MARK: Properties
-    @IBOutlet weak var nickname: UILabel!
-    @IBOutlet weak var hostname: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var path: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

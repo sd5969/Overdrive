@@ -12,9 +12,12 @@ import os.log
 class ServerViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: Properties
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var nickname: UITextField!
+    @IBOutlet weak var hostname: UITextField!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var port: UITextField!
+    @IBOutlet weak var rootDirectory: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     /*
@@ -27,55 +30,50 @@ class ServerViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         super.viewDidLoad()
         
         // Handle the text field’s user input through delegate callbacks.
-        nameTextField.delegate = self
+        nickname.delegate = self
+        hostname.delegate = self
+        username.delegate = self
+        password.delegate = self
+        port.delegate = self
+        rootDirectory.delegate = self
         
-        // Set up views if editing an existing Meal.
+        // Set up views if editing an existing Server.
         if let server = server {
-            navigationItem.title = server.name
-            nameTextField.text   = server.name
-            photoImageView.image = server.photo
-            ratingControl.rating = server.rating
+            navigationItem.title = server.nickname
+            nickname.text = server.nickname
+            hostname.text = server.hostname
+            username.text = server.username
+            password.text = server.password
+            port.text = String(server.port)
+            rootDirectory.text = server.rootDirectory
         }
         
-        // Enable the Save button only if the text field has a valid Meal name.
+        // Enable the Save button only if the text field has a valid Server hostname.
         updateSaveButtonState()
     }
 
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Hide the keyboard.
-        textField.resignFirstResponder()
+        // Hide the keyboard if last field
+        if textField === rootDirectory {
+            textField.resignFirstResponder()
+        }
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        // Disable the Save button while editing.
-        saveButton.isEnabled = false
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        updateSaveButtonState()
-        navigationItem.title = textField.text
-    }
-    
-    //MARK: UIImagePickerControllerDelegate
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        // Dismiss the picker if the user canceled.
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        // The info dictionary may contain multiple representations of the image. You want to use the original.
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        if textField === hostname && !(hostname.text ?? "").isEmpty {
+            nickname.text = hostname.text
+            navigationItem.title = textField.text
         }
         
-        // Set photoImageView to display the selected image.
-        photoImageView.image = selectedImage
-        
-        // Dismiss the picker.
-        dismiss(animated: true, completion: nil)
+        if textField === nickname && !(nickname.text ?? "").isEmpty {
+            navigationItem.title = textField.text
+        }
+        updateSaveButtonState()
     }
     
     //MARK: Navigation
@@ -106,37 +104,24 @@ class ServerViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             return
         }
         
-        let name = nameTextField.text ?? ""
-        let photo = photoImageView.image
-        let rating = ratingControl.rating
+        guard let hostnameVal = hostname.text else {
+            fatalError("Hostname MUST be set")
+        }
+        let nicknameVal = nickname.text
+        let usernameVal = username.text
+        let passwordVal = password.text
+        let portVal = Int(port.text ?? "9091")
+        let rootDirectoryVal = rootDirectory.text ?? nil
         
         // Set the server to be passed to ServerTableViewController after the unwind segue.
-        server = Server(name: name, photo: photo, rating: rating)
-    }
-    
-    // MARK: Actions
-    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
-        
-        // Hide the keyboard.
-        nameTextField.resignFirstResponder()
-        
-        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-        let imagePickerController = UIImagePickerController()
-        
-        // Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .photoLibrary
-        
-        // Make sure ViewController is notified when the user picks an image.
-        imagePickerController.delegate = self
-        
-        present(imagePickerController, animated: true, completion: nil)
+        server = Server(nickname: nicknameVal, hostname: hostnameVal, username: usernameVal, password: passwordVal, port: portVal, rootDirectory: rootDirectoryVal)
     }
     
     //MARK: Private Methods
     
     private func updateSaveButtonState() {
         // Disable the Save button if the text field is empty.
-        let text = nameTextField.text ?? ""
+        let text = hostname.text ?? ""
         saveButton.isEnabled = !text.isEmpty
     }
 }

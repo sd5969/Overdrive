@@ -38,23 +38,22 @@ class ServerTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func unwindToServerListFromTorrent(sender: UIStoryboardSegue) {}
+    
     //MARK: Private Methods
     
     private func loadSampleServers() {
-        let photo1 = UIImage(named: "meal1")
-        let photo2 = UIImage(named: "meal2")
-        let photo3 = UIImage(named: "meal3")
         
-        guard let server1 = Server(name: "Caprese Salad", photo: photo1, rating: 4) else {
-            fatalError("Unable to instantiate meal1")
+        guard let server1 = Server(nickname: nil, hostname: "testserver1.com", username: nil, password: nil, port: nil, rootDirectory: nil) else {
+            fatalError("Unable to instantiate server1")
         }
         
-        guard let server2 = Server(name: "Chicken and Potatoes", photo: photo2, rating: 5) else {
-            fatalError("Unable to instantiate meal2")
+        guard let server2 = Server(nickname: nil, hostname: "testserver2.com", username: nil, password: nil, port: nil, rootDirectory: nil) else {
+            fatalError("Unable to instantiate server2")
         }
         
-        guard let server3 = Server(name: "Pasta with Meatballs", photo: photo3, rating: 3) else {
-            fatalError("Unable to instantiate meal2")
+        guard let server3 = Server(nickname: nil, hostname: "testserver3.com", username: nil, password: nil, port: nil, rootDirectory: nil) else {
+            fatalError("Unable to instantiate server3")
         }
         
         servers += [server1, server2, server3]
@@ -81,7 +80,10 @@ class ServerTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        // Load any saved meals, otherwise load sample data.
+        // Allow selection during editing. Don't think this is the right way to do it
+        // tableView.allowsSelectionDuringEditing = true
+        
+        // Load any saved servers, otherwise load sample data.
         if let savedServers = loadServers() {
             servers += savedServers
         }
@@ -90,6 +92,8 @@ class ServerTableViewController: UITableViewController {
             // Load the sample data.
             loadSampleServers()
         }
+        
+        self.tableView.rowHeight = 65.0
     }
 
     // MARK: - Table view data source
@@ -112,12 +116,11 @@ class ServerTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of ServerTableViewCell.")
         }
         
-        // Fetches the appropriate meal for the data source layout.
+        // Fetches the appropriate server for the data source layout.
         let server = servers[indexPath.row]
 
-        cell.nameLabel.text = server.name
-        cell.photoImageView.image = server.photo
-        cell.ratingControl.rating = server.rating
+        cell.nickname.text = server.nickname
+        cell.hostname.text = server.hostname
 
         return cell
     }
@@ -128,7 +131,7 @@ class ServerTableViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -168,8 +171,8 @@ class ServerTableViewController: UITableViewController {
         case "AddItem":
             os_log("Adding a new server.", log: OSLog.default, type: .debug)
         
-        case "ShowDetail":
-            guard let serverDetailViewController = segue.destination as? ServerViewController else {
+        case "Show":
+            guard let torrentTableViewController = segue.destination as? TorrentTableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
@@ -182,7 +185,7 @@ class ServerTableViewController: UITableViewController {
             }
             
             let selectedServer = servers[indexPath.row]
-            serverDetailViewController.server = selectedServer
+            torrentTableViewController.server = selectedServer
             
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier as Optional)")
