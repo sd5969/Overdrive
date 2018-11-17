@@ -19,6 +19,7 @@ class Server: NSObject, NSCoding {
     var password: String
     var port: Int
     var rootDirectory: String
+    var headerKey: String
 
     //MARK: Archiving Paths
     
@@ -34,16 +35,18 @@ class Server: NSObject, NSCoding {
         static let password = "password"
         static let port = "port"
         static let rootDirectory = "rootDirectory"
+        static let headerKey = "headerKey"
     }
     
     //MARK: Initialization
-    init?(nickname: String?, hostname: String, username: String?, password: String?, port: Int?, rootDirectory: String?) {
+    init?(nickname: String?, hostname: String, username: String?, password: String?, port: Int?, rootDirectory: String?, headerKey: String?) {
         self.nickname = nickname ?? hostname
         self.hostname = hostname
         self.username = username ?? ""
         self.password = password ?? ""
         self.port = port ?? 9091
-        self.rootDirectory = rootDirectory ?? "" // TODO: replace this with the right one
+        self.rootDirectory = rootDirectory ?? "/transmission/rpc"
+        self.headerKey = headerKey ?? ""
     }
     
     //MARK: NSCoding
@@ -55,6 +58,7 @@ class Server: NSObject, NSCoding {
         aCoder.encode(password, forKey: PropertyKey.password)
         aCoder.encode(port, forKey: PropertyKey.port)
         aCoder.encode(rootDirectory, forKey: PropertyKey.rootDirectory)
+        aCoder.encode(headerKey, forKey: PropertyKey.headerKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -64,14 +68,14 @@ class Server: NSObject, NSCoding {
             return nil
         }
         
-        // Because photo is an optional property of Server, just use conditional cast.
         let nickname = aDecoder.decodeObject(forKey: PropertyKey.nickname) as? String
         let username = aDecoder.decodeObject(forKey: PropertyKey.username) as? String
         let password = aDecoder.decodeObject(forKey: PropertyKey.password) as? String
         let port = aDecoder.decodeInteger(forKey: PropertyKey.port) as Int
         let rootDirectory = aDecoder.decodeObject(forKey: PropertyKey.rootDirectory) as? String
+        let headerKey = aDecoder.decodeObject(forKey: PropertyKey.headerKey) as? String
         
         // Must call designated initializer.
-        self.init(nickname: nickname, hostname: hostname, username: username, password: password, port: port, rootDirectory: rootDirectory)
+        self.init(nickname: nickname, hostname: hostname, username: username, password: password, port: port, rootDirectory: rootDirectory, headerKey: headerKey)
     }
 }

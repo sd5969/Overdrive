@@ -10,12 +10,29 @@ import UIKit
 
 class Torrent {
     
+    // from https://github.com/FLYBYME/node-transmission
+    enum Status: Int {
+        case STOPPED,  // : 0  # Torrent is stopped
+        CHECK_WAIT,    // : 1  # Queued to check files
+        CHECK,         // : 2  # Checking files
+        DOWNLOAD_WAIT, // : 3  # Queued to download
+        DOWNLOAD,      // : 4  # Downloading
+        SEED_WAIT,     // : 5  # Queued to seed
+        SEED,          // : 6  # Seeding
+        ISOLATED,      // : 7  # Torrent can't find peers
+        UNKNOWN
+    }
+    
     //MARK: Properties
     var name: String
     var path: Path
+    var addedDate: Date
+    var status: Status
     
-    init?(name: String, path: Path) {
+    init?(name: String, path: Path, addedDate: Date, status: Int) {
         self.name = name
         self.path = path
+        self.addedDate = addedDate
+        self.status = Status(rawValue: status) ?? Status.UNKNOWN
     }
 }

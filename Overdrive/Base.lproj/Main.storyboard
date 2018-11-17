@@ -239,7 +239,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Server Detail" id="S8b-Ix-5b5">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" style="plain" id="Pub-P7-q3b"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Pub-P7-q3b"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXn-WU-tup" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -286,7 +286,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pick Torrent Path" id="7IN-kb-Ru0">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="eLV-6j-Kfr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="eLV-6j-Kfr">
                             <connections>
                                 <segue destination="qyO-XY-kjA" kind="unwind" unwindAction="unwindToTorrentListWithSender:" id="pFJ-PA-1Fh"/>
                             </connections>

@@ -32,6 +32,20 @@ class TorrentTableViewController: UITableViewController {
         torrents += [torrent1, torrent2]
     }
     
+    private func loadTorrents() {
+        guard let thisServer = server else {
+            fatalError("Server is missing in TorrentTableViewController")
+        }
+        APIController.getTorrents(for: thisServer) { (result) in
+            switch result {
+            case .success(let posts):
+                self.torrents = APIController.postToTorrent(posts: posts)
+            case .failure(let error):
+                fatalError("error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     
     //MARK: Actions
     
@@ -48,13 +62,13 @@ class TorrentTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadSampleTorrents()
-        
         guard let thisServer = server else {
             fatalError("Server is missing in TorrentTableViewController")
         }
         navigationItem.title = thisServer.nickname
-
+        
+        loadSampleTorrents()
+        
         self.tableView.rowHeight = 65.0
         
         // Uncomment the following line to preserve selection between presentations
