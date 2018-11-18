@@ -114,7 +114,7 @@ class ServerViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         let rootDirectoryVal = rootDirectory.text ?? nil
         
         // Set the server to be passed to ServerTableViewController after the unwind segue.
-        server = Server(nickname: nicknameVal, hostname: hostnameVal, username: usernameVal, password: passwordVal, port: portVal, rootDirectory: rootDirectoryVal)
+        server = Server(nickname: nicknameVal, hostname: hostnameVal, username: usernameVal, password: passwordVal, port: portVal, rootDirectory: rootDirectoryVal, sessionKey: "")
     }
     
     //MARK: Private Methods

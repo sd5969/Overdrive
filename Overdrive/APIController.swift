@@ -13,21 +13,27 @@ class APIController {
     
     enum Result<Value> {
         case success(Value)
-        case failure(Error, Any?)
+        case failure(Error)
     }
     
-    enum APIError: Error {
+    enum APIError: LocalizedError {
         case UnexpectedResponseCode,
         ResultNotSuccess,
         Unauthorized,
         InvalidSessionKey
-    }
-    
-    struct Post: Codable {
-        let userId: Int
-        let id: Int
-        let title: String
-        let body: String
+        
+        public var errorDescription: String? {
+            switch self {
+            case .UnexpectedResponseCode:
+                return NSLocalizedString("API response code does not match expectation", comment: "")
+            case .ResultNotSuccess:
+                return NSLocalizedString("API returned unsuccessful response", comment: "")
+            case .Unauthorized:
+                return NSLocalizedString("Authentication unsuccessful", comment: "")
+            case .InvalidSessionKey:
+                return NSLocalizedString("API session key invalid", comment: "")
+            }
+        }
     }
     
     struct TorrentResult: Codable {
@@ -46,6 +52,78 @@ class APIController {
         let result: String
     }
     
+    static func createCredentials(server: Server) -> String {
+        if server.username.isEmpty {
+            return ""
+        }
+        let username = server.username
+        let password = server.password
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        return loginData.base64EncodedString()
+    }
+    
+    static func getSessionId(for server: Server, completion: ((Result<String>) -> Void)?) {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "http"
+        urlComponents.host = server.hostname
+        urlComponents.port = server.port
+        urlComponents.path = server.rootDirectory
+        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue(server.sessionKey, forHTTPHeaderField: "X-Transmission-Session-Id")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let creds = createCredentials(server: server)
+        if !creds.isEmpty {
+            request.addValue("Basic \(creds)", forHTTPHeaderField: "Authorization")
+        }
+        
+        // prepare json data
+        let json: [String: Any] = [
+            "arguments": [
+                "fields": [ "version" ],
+            ],
+            "method": "session-get"
+        ]
+        
+        var jsonData: Data
+        
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: json)
+        } catch {
+            fatalError("Unable to create JSON body payload")
+        }
+        
+        request.httpBody = jsonData
+        
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    fatalError("Could not cast response to HTTP response")
+                }
+                if let error = responseError {
+                    completion?(.failure(error))
+                } else if httpResponse.statusCode == 401 {
+                    completion?(.failure(APIError.Unauthorized))
+                } else if httpResponse.statusCode == 409 {
+                    let sessionKey = httpResponse.allHeaderFields["X-Transmission-Session-Id"] as! String
+                    completion?(.success(sessionKey))
+                } else if httpResponse.statusCode == 200 {
+                    completion?(.success("")) // using empty to indicate no need to change sessionKey
+                } else {
+                    let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Data was not retrieved from request"]) as Error
+                    completion?(.failure(error))
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
     static func getTorrents(for server: Server, completion: ((Result<[Torrent]>) -> Void)?) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "http"
@@ -56,13 +134,17 @@ class APIController {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue(server.headerKey, forHTTPHeaderField: "X-Transmission-Session-Id")
+        request.addValue(server.sessionKey, forHTTPHeaderField: "X-Transmission-Session-Id")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let creds = createCredentials(server: server)
+        if !creds.isEmpty {
+            request.addValue("Basic \(creds)", forHTTPHeaderField: "Authorization")
+        }
         
         // prepare json data
         let json: [String: Any] = [
             "arguments": [
-                "fields": [ "addedDate", "name", "status" ],
+                "fields": [ "addedDate", "name", "status", "downloadDir" ],
             ],
            "method": "torrent-get"
         ]
@@ -85,35 +167,26 @@ class APIController {
                     fatalError("Could not cast response to HTTP response")
                 }
                 if let error = responseError {
-                    completion?(.failure(error, nil))
+                    completion?(.failure(error))
                 } else if httpResponse.statusCode == 401 {
-                    completion?(.failure(APIError.Unauthorized, nil))
+                    completion?(.failure(APIError.Unauthorized))
                 } else if httpResponse.statusCode == 409 {
-                    let sessionKey = httpResponse.allHeaderFields["X-Transmission-Session-Id"]
-                    completion?(.failure(APIError.InvalidSessionKey, sessionKey))
+                    completion?(.failure(APIError.InvalidSessionKey))
                 } else if let jsonResponse = responseData {
-                    // Now we have jsonData, Data representation of the JSON returned to us
-                    // from our URLRequest...
-                    
-                    // Create an instance of JSONDecoder to decode the JSON data to our
-                    // Codable struct
                     let decoder = JSONDecoder()
                     
                     do {
-                        // We would use Post.self for JSON representing a single Post
-                        // object, and [Post].self for JSON representing an array of
-                        // Post objects
                         let torrentResult = try decoder.decode(GetTorrentResult.self, from: jsonResponse)
                         if torrentResult.result != "success" {
-                            completion?(.failure(APIError.ResultNotSuccess, nil))
+                            completion?(.failure(APIError.ResultNotSuccess))
                         }
                         completion?(.success(torrentResultToTorrent(torrentResults: torrentResult.arguments.torrents)))
                     } catch {
-                        completion?(.failure(error, nil))
+                        completion?(.failure(error))
                     }
                 } else {
                     let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Data was not retrieved from request"]) as Error
-                    completion?(.failure(error, nil))
+                    completion?(.failure(error))
                 }
             }
         }

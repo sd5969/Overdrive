@@ -23,25 +23,38 @@ class TorrentTableViewController: UITableViewController {
         guard let path2 = Path(path: "/var/lib/torrents/subdir") else {
             fatalError("Could not instantiate path1")
         }
-        guard let torrent1 = Torrent(name: "Torrent 1", path: path1) else {
+        guard let torrent1 = Torrent(name: "Torrent 1", path: path1, addedDate: Date(), status: Torrent.Status.SEED) else {
             fatalError("Could not instantiate torrent1")
         }
-        guard let torrent2 = Torrent(name: "Torrent 2", path: path2) else {
+        guard let torrent2 = Torrent(name: "Torrent 2", path: path2, addedDate: Date(), status: Torrent.Status.SEED) else {
             fatalError("Could not instantiate torrent2")
         }
         torrents += [torrent1, torrent2]
     }
     
     private func loadTorrents() {
-        guard let thisServer = server else {
+        if self.server == nil {
             fatalError("Server is missing in TorrentTableViewController")
         }
-        APIController.getTorrents(for: thisServer) { (result) in
+        APIController.getSessionId(for: self.server!) { (result) in
             switch result {
-            case .success(let posts):
-                self.torrents = APIController.postToTorrent(posts: posts)
             case .failure(let error):
-                fatalError("error: \(error.localizedDescription)")
+                print("Unable to update session key, will not load torrents. Error was: \(error.localizedDescription).")
+                self.loadSampleTorrents()
+                return
+            case .success(let sessionKey):
+                if (!sessionKey.isEmpty) {
+                    self.server!.sessionKey = sessionKey
+                }
+                APIController.getTorrents(for: self.server!) { (result) in
+                    switch result {
+                    case .success(let torrents):
+                        self.torrents = torrents.sorted(by: { $0.addedDate > $1.addedDate })
+                        self.tableView.reloadData()
+                    case .failure(let error):
+                        print("Error loading torrents: \(error.localizedDescription).")
+                    }
+                }
             }
         }
     }
@@ -67,7 +80,7 @@ class TorrentTableViewController: UITableViewController {
         }
         navigationItem.title = thisServer.nickname
         
-        loadSampleTorrents()
+        loadTorrents()
         
         self.tableView.rowHeight = 65.0
         

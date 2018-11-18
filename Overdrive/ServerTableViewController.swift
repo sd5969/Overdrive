@@ -44,15 +44,15 @@ class ServerTableViewController: UITableViewController {
     
     private func loadSampleServers() {
         
-        guard let server1 = Server(nickname: nil, hostname: "testserver1.com", username: nil, password: nil, port: nil, rootDirectory: nil) else {
+        guard let server1 = Server(nickname: nil, hostname: "testserver1.com", username: nil, password: nil, port: nil, rootDirectory: nil, sessionKey: nil) else {
             fatalError("Unable to instantiate server1")
         }
         
-        guard let server2 = Server(nickname: nil, hostname: "testserver2.com", username: nil, password: nil, port: nil, rootDirectory: nil) else {
+        guard let server2 = Server(nickname: nil, hostname: "testserver2.com", username: nil, password: nil, port: nil, rootDirectory: nil, sessionKey: nil) else {
             fatalError("Unable to instantiate server2")
         }
         
-        guard let server3 = Server(nickname: nil, hostname: "testserver3.com", username: nil, password: nil, port: nil, rootDirectory: nil) else {
+        guard let server3 = Server(nickname: nil, hostname: "testserver3.com", username: nil, password: nil, port: nil, rootDirectory: nil, sessionKey: nil) else {
             fatalError("Unable to instantiate server3")
         }
         

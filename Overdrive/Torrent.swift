@@ -35,4 +35,11 @@ class Torrent {
         self.addedDate = addedDate
         self.status = Status(rawValue: status) ?? Status.UNKNOWN
     }
+    
+    init?(name: String, path: Path, addedDate: Date, status: Status) {
+        self.name = name
+        self.path = path
+        self.addedDate = addedDate
+        self.status = status
+    }
 }
