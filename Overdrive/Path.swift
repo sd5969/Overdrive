@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Path: CustomStringConvertible {
+class Path: CustomStringConvertible, Equatable {
     
     // MARK: Properties
     
@@ -16,6 +16,10 @@ class Path: CustomStringConvertible {
     
     public var description: String {
         return self.path
+    }
+    
+    static func == (lhs: Path, rhs: Path) -> Bool {
+        return lhs.path == rhs.path
     }
     
     init?(path: String) {

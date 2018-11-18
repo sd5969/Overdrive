@@ -28,18 +28,21 @@ class Torrent {
     var path: Path
     var addedDate: Date
     var status: Status
+    var id: Int
     
-    init?(name: String, path: Path, addedDate: Date, status: Int) {
+    init?(name: String, path: Path, addedDate: Date, status: Int, id: Int) {
         self.name = name
         self.path = path
         self.addedDate = addedDate
         self.status = Status(rawValue: status) ?? Status.UNKNOWN
+        self.id = id
     }
     
-    init?(name: String, path: Path, addedDate: Date, status: Status) {
+    init?(name: String, path: Path, addedDate: Date, status: Status, id: Int) {
         self.name = name
         self.path = path
         self.addedDate = addedDate
         self.status = status
+        self.id = id
     }
 }

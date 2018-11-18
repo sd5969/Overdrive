@@ -41,6 +41,7 @@ class APIController {
         let name: String
         let status: Int
         let downloadDir: String
+        let id: Int
     }
     
     struct TorrentListResult: Codable {
@@ -144,7 +145,7 @@ class APIController {
         // prepare json data
         let json: [String: Any] = [
             "arguments": [
-                "fields": [ "addedDate", "name", "status", "downloadDir" ],
+                "fields": [ "addedDate", "name", "status", "downloadDir", "id" ],
             ],
            "method": "torrent-get"
         ]
@@ -204,7 +205,7 @@ class APIController {
                 fatalError("Could not cast addedDate to TimeInterval")
             }
             let addedDate = Date(timeIntervalSince1970: timeInterval)
-            guard let torrent = Torrent(name: torrentResult.name, path: path, addedDate: addedDate, status: torrentResult.status) else {
+            guard let torrent = Torrent(name: torrentResult.name, path: path, addedDate: addedDate, status: torrentResult.status, id: torrentResult.id) else {
                 fatalError("Could not cast torrent to Torrent")
             }
             torrents.append(torrent)

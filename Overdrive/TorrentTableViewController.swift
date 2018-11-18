@@ -15,6 +15,7 @@ class TorrentTableViewController: UITableViewController {
     
     var torrents = [Torrent]()
     var server: Server? = nil
+    var paths = [Path]()
     
     private func loadSampleTorrents() {
         guard let path1 = Path(path: "/var/lib/torrents") else {
@@ -23,10 +24,10 @@ class TorrentTableViewController: UITableViewController {
         guard let path2 = Path(path: "/var/lib/torrents/subdir") else {
             fatalError("Could not instantiate path1")
         }
-        guard let torrent1 = Torrent(name: "Torrent 1", path: path1, addedDate: Date(), status: Torrent.Status.SEED) else {
+        guard let torrent1 = Torrent(name: "Torrent 1", path: path1, addedDate: Date(), status: Torrent.Status.SEED, id: 0) else {
             fatalError("Could not instantiate torrent1")
         }
-        guard let torrent2 = Torrent(name: "Torrent 2", path: path2, addedDate: Date(), status: Torrent.Status.SEED) else {
+        guard let torrent2 = Torrent(name: "Torrent 2", path: path2, addedDate: Date(), status: Torrent.Status.SEED, id: 1) else {
             fatalError("Could not instantiate torrent2")
         }
         torrents += [torrent1, torrent2]
@@ -50,6 +51,13 @@ class TorrentTableViewController: UITableViewController {
                     switch result {
                     case .success(let torrents):
                         self.torrents = torrents.sorted(by: { $0.addedDate > $1.addedDate })
+                        let allPaths = self.torrents.map { (torrent: Torrent) -> Path in
+                            return torrent.path
+                        }
+                        // not sure if this is more efficient than just looping lol
+                        self.paths = allPaths.enumerated().filter { (index, path) -> Bool in
+                            return allPaths.firstIndex(of: path) == index
+                        }.map { (index, path) in path }
                         self.tableView.reloadData()
                     case .failure(let error):
                         print("Error loading torrents: \(error.localizedDescription).")
@@ -188,6 +196,7 @@ class TorrentTableViewController: UITableViewController {
             
             let selectedTorrent = torrents[indexPath.row]
             pathTableViewController.torrent = selectedTorrent
+            pathTableViewController.paths = paths
             
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier as Optional)")

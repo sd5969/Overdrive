@@ -31,7 +31,7 @@ class PathTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadSamplePaths()
+        // loadSamplePaths()
         
         guard let thisTorrent = torrent else {
             fatalError("Torrent is missing in PathTableViewController")
