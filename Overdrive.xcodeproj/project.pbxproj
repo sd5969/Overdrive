@@ -119,21 +119,12 @@
 		97A458492189732C00901878 /* Overdrive */ = {
 			isa = PBXGroup;
 			children = (
+				97BF520121A3671B006EEC33 /* Controllers */,
+				97BF520021A366DC006EEC33 /* Storyboards */,
+				97BF51FF21A366CF006EEC33 /* ViewControllers */,
+				97BF51FE21A366B4006EEC33 /* Objects */,
 				97BF51FA21A35BD4006EEC33 /* Assets.xcassets */,
 				97A4584A2189732C00901878 /* AppDelegate.swift */,
-				97BB9E8B218E28F700BCF775 /* Server.swift */,
-				97F60D4721990D38004F8C69 /* Torrent.swift */,
-				97F60D4921990D42004F8C69 /* Path.swift */,
-				97A4584C2189732C00901878 /* ServerViewController.swift */,
-				97FB5F21218E54F900EC75A7 /* ServerTableViewController.swift */,
-				97FB5F1F218E4C9400EC75A7 /* ServerTableViewCell.swift */,
-				97F60D3F21990B26004F8C69 /* TorrentTableViewController.swift */,
-				97F60D4B219E6613004F8C69 /* APIController.swift */,
-				97F60D4321990C07004F8C69 /* TorrentTableViewCell.swift */,
-				97F60D4121990B36004F8C69 /* PathTableViewController.swift */,
-				97F60D4521990C10004F8C69 /* PathTableViewCell.swift */,
-				97A4584E2189732C00901878 /* Main.storyboard */,
-				97A458532189733100901878 /* LaunchScreen.storyboard */,
 				97A458562189733100901878 /* Info.plist */,
 			);
 			path = Overdrive;
@@ -155,6 +146,47 @@
 				97A4586C2189733100901878 /* Info.plist */,
 			);
 			path = OverdriveUITests;
+			sourceTree = "<group>";
+		};
+		97BF51FE21A366B4006EEC33 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				97BB9E8B218E28F700BCF775 /* Server.swift */,
+				97F60D4721990D38004F8C69 /* Torrent.swift */,
+				97F60D4921990D42004F8C69 /* Path.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		97BF51FF21A366CF006EEC33 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				97A4584C2189732C00901878 /* ServerViewController.swift */,
+				97FB5F21218E54F900EC75A7 /* ServerTableViewController.swift */,
+				97FB5F1F218E4C9400EC75A7 /* ServerTableViewCell.swift */,
+				97F60D3F21990B26004F8C69 /* TorrentTableViewController.swift */,
+				97F60D4321990C07004F8C69 /* TorrentTableViewCell.swift */,
+				97F60D4121990B36004F8C69 /* PathTableViewController.swift */,
+				97F60D4521990C10004F8C69 /* PathTableViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		97BF520021A366DC006EEC33 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				97A4584E2189732C00901878 /* Main.storyboard */,
+				97A458532189733100901878 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		97BF520121A3671B006EEC33 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				97F60D4B219E6613004F8C69 /* APIController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

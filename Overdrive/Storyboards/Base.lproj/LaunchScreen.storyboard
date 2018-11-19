@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,21 +15,39 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overdrive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTC-sZ-KIz">
-                                <rect key="frame" x="16" y="84" width="343" height="38.5"/>
+                                <rect key="frame" x="16" y="108" width="343" height="38.666666666666657"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIconImage" translatesAutoresizingMaskIntoConstraints="NO" id="8H5-iS-JhB">
+                                <rect key="frame" x="87.666666666666686" y="296.66666666666669" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="58L-cj-Aq5"/>
+                                    <constraint firstAttribute="height" constant="200" id="kp3-Uh-jJn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The barebones Transmission client that literally serves like one purpose." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPA-V3-kU5">
+                                <rect key="frame" x="16" y="730.66666666666663" width="343" height="31.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fPA-V3-kU5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ks6-br-W6u"/>
                             <constraint firstItem="HTC-sZ-KIz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ORK-SW-NOQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fPA-V3-kU5" secondAttribute="bottom" constant="16" id="Vkd-Kp-b05"/>
+                            <constraint firstItem="8H5-iS-JhB" firstAttribute="top" secondItem="HTC-sZ-KIz" secondAttribute="bottom" constant="150" id="Wan-OF-eXI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HTC-sZ-KIz" secondAttribute="trailing" constant="16" id="cTz-Kj-sYv"/>
+                            <constraint firstItem="8H5-iS-JhB" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rdK-Je-e5I"/>
                             <constraint firstItem="HTC-sZ-KIz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="seh-74-tEg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fPA-V3-kU5" secondAttribute="trailing" constant="16" id="szB-ct-Tk4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -39,4 +57,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AppIconImage" width="512" height="512"/>
+    </resources>
 </document>
