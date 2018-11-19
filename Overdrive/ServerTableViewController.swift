@@ -80,17 +80,9 @@ class ServerTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        // Allow selection during editing. Don't think this is the right way to do it
-        // tableView.allowsSelectionDuringEditing = true
-        
-        // Load any saved servers, otherwise load sample data.
+        // Load any saved servers, otherwise empty.
         if let savedServers = loadServers() {
             servers += savedServers
-        }
-        
-        else {
-            // Load the sample data.
-            loadSampleServers()
         }
         
         self.tableView.rowHeight = 65.0

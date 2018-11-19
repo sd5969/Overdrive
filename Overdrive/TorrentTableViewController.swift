@@ -41,7 +41,9 @@ class TorrentTableViewController: UITableViewController {
             switch result {
             case .failure(let error):
                 print("Unable to update session key, will not load torrents. Error was: \(error.localizedDescription).")
-                self.loadSampleTorrents()
+                let alert = UIAlertController(title: "Error", message: "Unable to update session key, will not load torrents.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Oh well", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 return
             case .success(let sessionKey):
                 if (!sessionKey.isEmpty) {
@@ -61,6 +63,9 @@ class TorrentTableViewController: UITableViewController {
                         self.tableView.reloadData()
                     case .failure(let error):
                         print("Error loading torrents: \(error.localizedDescription).")
+                        let alert = UIAlertController(title: "Error", message: "Error loading torrents.", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Oh well", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
             }
@@ -197,6 +202,7 @@ class TorrentTableViewController: UITableViewController {
             let selectedTorrent = torrents[indexPath.row]
             pathTableViewController.torrent = selectedTorrent
             pathTableViewController.paths = paths
+            pathTableViewController.server = server
             
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier as Optional)")

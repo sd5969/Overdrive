@@ -239,7 +239,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Server Detail" id="S8b-Ix-5b5">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Pub-P7-q3b"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="add" id="Pub-P7-q3b"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXn-WU-tup" userLabel="First Responder" sceneMemberID="firstResponder"/>

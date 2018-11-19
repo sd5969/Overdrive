@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Overdrive.xcodeproj">
+      location = "group:../Overdrive/Assets.xcassets">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

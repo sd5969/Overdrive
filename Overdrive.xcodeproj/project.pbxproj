@@ -10,11 +10,11 @@
 		97A4584B2189732C00901878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4584A2189732C00901878 /* AppDelegate.swift */; };
 		97A4584D2189732C00901878 /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4584C2189732C00901878 /* ServerViewController.swift */; };
 		97A458502189732C00901878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97A4584E2189732C00901878 /* Main.storyboard */; };
-		97A458522189733100901878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97A458512189733100901878 /* Assets.xcassets */; };
 		97A458552189733100901878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97A458532189733100901878 /* LaunchScreen.storyboard */; };
 		97A458602189733100901878 /* OverdriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4585F2189733100901878 /* OverdriveTests.swift */; };
 		97A4586B2189733100901878 /* OverdriveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4586A2189733100901878 /* OverdriveUITests.swift */; };
 		97BB9E8C218E28F700BCF775 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB9E8B218E28F700BCF775 /* Server.swift */; };
+		97BF51FB21A35BD5006EEC33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BF51FA21A35BD4006EEC33 /* Assets.xcassets */; };
 		97F60D4021990B26004F8C69 /* TorrentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D3F21990B26004F8C69 /* TorrentTableViewController.swift */; };
 		97F60D4221990B36004F8C69 /* PathTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D4121990B36004F8C69 /* PathTableViewController.swift */; };
 		97F60D4421990C07004F8C69 /* TorrentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D4321990C07004F8C69 /* TorrentTableViewCell.swift */; };
@@ -48,7 +48,6 @@
 		97A4584A2189732C00901878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97A4584C2189732C00901878 /* ServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
 		97A4584F2189732C00901878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		97A458512189733100901878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97A458542189733100901878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97A458562189733100901878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97A4585B2189733100901878 /* OverdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OverdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +57,7 @@
 		97A4586A2189733100901878 /* OverdriveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverdriveUITests.swift; sourceTree = "<group>"; };
 		97A4586C2189733100901878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97BB9E8B218E28F700BCF775 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		97BF51FA21A35BD4006EEC33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97F60D3F21990B26004F8C69 /* TorrentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTableViewController.swift; sourceTree = "<group>"; };
 		97F60D4121990B36004F8C69 /* PathTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTableViewController.swift; sourceTree = "<group>"; };
 		97F60D4321990C07004F8C69 /* TorrentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,6 +119,7 @@
 		97A458492189732C00901878 /* Overdrive */ = {
 			isa = PBXGroup;
 			children = (
+				97BF51FA21A35BD4006EEC33 /* Assets.xcassets */,
 				97A4584A2189732C00901878 /* AppDelegate.swift */,
 				97BB9E8B218E28F700BCF775 /* Server.swift */,
 				97F60D4721990D38004F8C69 /* Torrent.swift */,
@@ -133,7 +134,6 @@
 				97F60D4521990C10004F8C69 /* PathTableViewCell.swift */,
 				97A4584E2189732C00901878 /* Main.storyboard */,
 				97A458532189733100901878 /* LaunchScreen.storyboard */,
-				97A458512189733100901878 /* Assets.xcassets */,
 				97A458562189733100901878 /* Info.plist */,
 			);
 			path = Overdrive;
@@ -262,7 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97A458552189733100901878 /* LaunchScreen.storyboard in Resources */,
-				97A458522189733100901878 /* Assets.xcassets in Resources */,
+				97BF51FB21A35BD5006EEC33 /* Assets.xcassets in Resources */,
 				97A458502189732C00901878 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

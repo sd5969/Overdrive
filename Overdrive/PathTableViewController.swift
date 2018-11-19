@@ -16,6 +16,7 @@ class PathTableViewController: UITableViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var paths = [Path]()
     var torrent: Torrent? = nil
+    var server: Server? = nil
     var selectedPath: Path? = nil
     
     private func loadSamplePaths() {
@@ -28,6 +29,48 @@ class PathTableViewController: UITableViewController {
         paths += [path1, path2]
     }
     
+    private func updateTorrentPath() {
+        if self.server == nil || self.torrent == nil {
+            fatalError("Server / Torrent is missing in PathTableViewController")
+        }
+        if self.selectedPath == nil {
+            print("Not updating path, nothing selected")
+            return
+        }
+        APIController.getSessionId(for: self.server!) { (result) in
+            switch result {
+            case .failure(let error):
+                print("Unable to update session key, will not load torrents. Error was: \(error.localizedDescription).")
+                let alert = UIAlertController(title: "Error", message: "Unable to update session key, will not load torrents.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Oh well", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            case .success(let sessionKey):
+                print("Updating session key")
+                if (!sessionKey.isEmpty) {
+                    self.server!.sessionKey = sessionKey
+                }
+                APIController.updateTorrentPath(server: self.server!, torrent: self.torrent!, path: self.selectedPath!) { (result) in
+                    switch result {
+                    case .success(let success):
+                        if !success {
+                            print("Error updating torrent path.")
+                            let alert = UIAlertController(title: "Error", message: "Torrent path update unsuccessful", preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "Oh well", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        print("Updated torrent path")
+                    case .failure(let error):
+                        print("Error loading torrents: \(error.localizedDescription).")
+                        let alert = UIAlertController(title: "Error", message: "Error updating torrent path", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +80,7 @@ class PathTableViewController: UITableViewController {
             fatalError("Torrent is missing in PathTableViewController")
         }
         navigationItem.title = thisTorrent.name
+        updateSaveState()
         
         self.tableView.rowHeight = 35.0
 
@@ -76,6 +120,7 @@ class PathTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPath = paths[indexPath.row]
+        updateSaveState()
     }
     
     /*
@@ -132,5 +177,11 @@ class PathTableViewController: UITableViewController {
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
         }
+        
+        self.updateTorrentPath()
+    }
+    
+    func updateSaveState() {
+        saveButton.isEnabled = (self.selectedPath != nil)
     }
 }
