@@ -210,21 +210,27 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Torrent Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbf-ti-6bi" userLabel="Torrent Location">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Torrent Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbf-ti-6bi" userLabel="Torrent Location">
                                             <rect key="frame" x="16" y="37" width="343" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Torrent Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbG-51-s45" userLabel="Torrent Name">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Torrent Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbG-51-s45" userLabel="Torrent Name">
                                             <rect key="frame" x="16" y="9" width="343" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CbG-51-s45" firstAttribute="trailing" secondItem="ZBj-Hd-qfW" secondAttribute="trailingMargin" id="0Az-i7-tuF"/>
+                                        <constraint firstItem="kbf-ti-6bi" firstAttribute="top" secondItem="CbG-51-s45" secondAttribute="bottom" constant="8" id="0gi-YK-ke8"/>
+                                        <constraint firstItem="kbf-ti-6bi" firstAttribute="trailing" secondItem="ZBj-Hd-qfW" secondAttribute="trailingMargin" id="EUA-1Q-ROJ"/>
+                                        <constraint firstItem="kbf-ti-6bi" firstAttribute="leading" secondItem="ZBj-Hd-qfW" secondAttribute="leadingMargin" id="cMe-2y-AZ3"/>
+                                        <constraint firstItem="CbG-51-s45" firstAttribute="top" secondItem="ZBj-Hd-qfW" secondAttribute="top" constant="9" id="t8q-SD-LE2"/>
+                                        <constraint firstItem="CbG-51-s45" firstAttribute="leading" secondItem="ZBj-Hd-qfW" secondAttribute="leadingMargin" id="xA2-cC-PgP"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="name" destination="CbG-51-s45" id="h8I-kO-cGb"/>
