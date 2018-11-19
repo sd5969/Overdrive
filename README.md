@@ -24,3 +24,5 @@ This small subset of features would satisfy my initial requirements. This app ac
 6. Show more torrent details in list view
 7. Fix that pesky layout issue I'm having with torrent table
 8. Dark theme?
+9. Add that little arrow that goes to the right on the table cells haha
+10. Add check mark when table cell is selected on paths view
