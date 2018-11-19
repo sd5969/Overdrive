@@ -26,3 +26,4 @@ This small subset of features would satisfy my initial requirements. This app ac
 8. Dark theme?
 9. Add that little arrow that goes to the right on the table cells haha
 10. Add check mark when table cell is selected on paths view
+11. HTTPS support

@@ -83,6 +83,11 @@ class TorrentTableViewController: UITableViewController {
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
         }
+        
+        // if AddTorrentViewController then reload the content
+        if sender.source is AddTorrentViewController {
+            self.loadTorrents()
+        }
     }
     
     override func viewDidLoad() {
