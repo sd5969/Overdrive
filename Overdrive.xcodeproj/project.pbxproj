@@ -15,6 +15,7 @@
 		97A4586B2189733100901878 /* OverdriveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4586A2189733100901878 /* OverdriveUITests.swift */; };
 		97BB9E8C218E28F700BCF775 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB9E8B218E28F700BCF775 /* Server.swift */; };
 		97BF51FB21A35BD5006EEC33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BF51FA21A35BD4006EEC33 /* Assets.xcassets */; };
+		97BF520321A37190006EEC33 /* AddTorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BF520221A37190006EEC33 /* AddTorrentViewController.swift */; };
 		97F60D4021990B26004F8C69 /* TorrentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D3F21990B26004F8C69 /* TorrentTableViewController.swift */; };
 		97F60D4221990B36004F8C69 /* PathTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D4121990B36004F8C69 /* PathTableViewController.swift */; };
 		97F60D4421990C07004F8C69 /* TorrentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F60D4321990C07004F8C69 /* TorrentTableViewCell.swift */; };
@@ -58,6 +59,7 @@
 		97A4586C2189733100901878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97BB9E8B218E28F700BCF775 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		97BF51FA21A35BD4006EEC33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		97BF520221A37190006EEC33 /* AddTorrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTorrentViewController.swift; sourceTree = "<group>"; };
 		97F60D3F21990B26004F8C69 /* TorrentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTableViewController.swift; sourceTree = "<group>"; };
 		97F60D4121990B36004F8C69 /* PathTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTableViewController.swift; sourceTree = "<group>"; };
 		97F60D4321990C07004F8C69 /* TorrentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTableViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				97F60D3F21990B26004F8C69 /* TorrentTableViewController.swift */,
 				97F60D4321990C07004F8C69 /* TorrentTableViewCell.swift */,
 				97F60D4121990B36004F8C69 /* PathTableViewController.swift */,
+				97BF520221A37190006EEC33 /* AddTorrentViewController.swift */,
 				97F60D4521990C10004F8C69 /* PathTableViewCell.swift */,
 			);
 			path = ViewControllers;
@@ -330,6 +333,7 @@
 				97BB9E8C218E28F700BCF775 /* Server.swift in Sources */,
 				97F60D4C219E6613004F8C69 /* APIController.swift in Sources */,
 				97F60D4221990B36004F8C69 /* PathTableViewController.swift in Sources */,
+				97BF520321A37190006EEC33 /* AddTorrentViewController.swift in Sources */,
 				97F60D4421990C07004F8C69 /* TorrentTableViewCell.swift in Sources */,
 				97A4584B2189732C00901878 /* AppDelegate.swift in Sources */,
 			);

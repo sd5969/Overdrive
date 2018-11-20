@@ -83,6 +83,13 @@ class TorrentTableViewController: UITableViewController {
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
         }
+        
+        // if AddTorrentViewController then reload the content
+        if let senderSource = sender.source as? UINavigationController {
+            if senderSource.topViewController is AddTorrentViewController {
+                self.loadTorrents()
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -185,6 +192,13 @@ class TorrentTableViewController: UITableViewController {
         switch(segue.identifier ?? "") {
         case "AddItem":
             os_log("Adding a new torrent.", log: OSLog.default, type: .debug)
+            guard let destinationNavigationController = segue.destination as? UINavigationController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            guard let addTorrentViewController = destinationNavigationController.topViewController as? AddTorrentViewController else {
+                fatalError("Unexpected destination: \(String(describing: destinationNavigationController.topViewController))")
+            }
+            addTorrentViewController.server = server
             
         case "Show":
             guard let pathTableViewController = segue.destination as? PathTableViewController else {

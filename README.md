@@ -13,16 +13,21 @@ This small subset of features would satisfy my initial requirements. This app ac
 ## Features
 1. Add servers
 2. List torrents (descending by date added)
-3. Change torrent path (and move data) based on existing path options
+3. Change torrent path (and move data) based 
+11. HTTPS support (done but untested)
+2. Add torrents (file)
+
+## Bug Fixes
+
+7. Fixed that pesky layout issue I'm having with torrent table (due to same classes nested)
 
 ## Enhancements
 1. Change torrent path to new, not yet used, path
-2. Add torrents (file / magnet / URL)
+2. Add torrents (magnet / URL)
 3. Sort by different criteria
 4. Filter by seeding, downloading, etc.
 5. Show torrent download status
 6. Show more torrent details in list view
-7. Fix that pesky layout issue I'm having with torrent table
 8. Dark theme?
 9. Add that little arrow that goes to the right on the table cells haha
 10. Add check mark when table cell is selected on paths view

@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TwU-s0-o8n">
-                                <rect key="frame" x="20" y="108" width="335" height="220"/>
+                                <rect key="frame" x="20" y="108" width="335" height="259"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Server Nickname (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w34-tm-fPd" userLabel="Server Nickname">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -113,12 +113,26 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Root Directory (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6ie-ca-02L" userLabel="Port">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Root Directory (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6ie-ca-02L" userLabel="Root Directory">
                                         <rect key="frame" x="0.0" y="190" width="335" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WA8-lS-odm">
+                                        <rect key="frame" x="0.0" y="228" width="335" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use HTTPS?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aw6-dZ-VkN">
+                                                <rect key="frame" x="0.0" y="0.0" width="278" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JCr-pO-EmX">
+                                                <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="6ie-ca-02L" secondAttribute="trailing" id="3b5-8e-eWR"/>
@@ -130,7 +144,9 @@
                                     <constraint firstItem="bVy-TT-ukf" firstAttribute="top" secondItem="Zii-tL-MG7" secondAttribute="bottom" constant="8" id="WSW-3X-BGn"/>
                                     <constraint firstItem="D0j-Kx-zWJ" firstAttribute="top" secondItem="bVy-TT-ukf" secondAttribute="bottom" constant="8" id="XFw-w6-Nc8"/>
                                     <constraint firstItem="6ie-ca-02L" firstAttribute="leading" secondItem="TwU-s0-o8n" secondAttribute="leadingMargin" id="YN0-Gj-ciq"/>
+                                    <constraint firstAttribute="trailing" secondItem="WA8-lS-odm" secondAttribute="trailing" id="aXj-NN-HNx"/>
                                     <constraint firstItem="bVy-TT-ukf" firstAttribute="leading" secondItem="TwU-s0-o8n" secondAttribute="leadingMargin" id="cL5-g9-wHv"/>
+                                    <constraint firstItem="WA8-lS-odm" firstAttribute="leading" secondItem="TwU-s0-o8n" secondAttribute="leading" id="cgz-Ig-Nve"/>
                                     <constraint firstItem="Zii-tL-MG7" firstAttribute="leading" secondItem="TwU-s0-o8n" secondAttribute="leadingMargin" id="h5o-JS-0dD"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="w34-tm-fPd" secondAttribute="trailing" id="jwO-Gj-pPX"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="S8e-V6-Fee" secondAttribute="trailing" id="lDG-bO-ioR"/>
@@ -168,6 +184,7 @@
                         <outlet property="port" destination="S8e-V6-Fee" id="edk-UN-yui"/>
                         <outlet property="rootDirectory" destination="6ie-ca-02L" id="FaM-yv-56f"/>
                         <outlet property="saveButton" destination="6hR-aD-Vah" id="l19-hK-UEu"/>
+                        <outlet property="useHttps" destination="JCr-pO-EmX" id="Wwn-FW-hDl"/>
                         <outlet property="username" destination="bVy-TT-ukf" id="xbp-yH-vp6"/>
                     </connections>
                 </viewController>
@@ -206,25 +223,31 @@
                             <tableViewCell clipsSubviews="YES" contentMode="TopLeft" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TorrentTableViewCell" rowHeight="65" id="H3w-fo-wQA" customClass="TorrentTableViewCell" customModule="Overdrive" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H3w-fo-wQA" id="ZBj-Hd-qfW" customClass="TorrentTableViewCell" customModule="Overdrive" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H3w-fo-wQA" id="ZBj-Hd-qfW">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Torrent Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbf-ti-6bi" userLabel="Torrent Location">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Torrent Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbf-ti-6bi" userLabel="Torrent Location">
                                             <rect key="frame" x="16" y="37" width="343" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Torrent Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbG-51-s45" userLabel="Torrent Name">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Torrent Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbG-51-s45" userLabel="Torrent Name">
                                             <rect key="frame" x="16" y="9" width="343" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CbG-51-s45" firstAttribute="trailing" secondItem="ZBj-Hd-qfW" secondAttribute="trailingMargin" id="Cfo-YX-VhM"/>
+                                        <constraint firstItem="CbG-51-s45" firstAttribute="top" secondItem="ZBj-Hd-qfW" secondAttribute="top" constant="9" id="Cy6-KC-3LK"/>
+                                        <constraint firstItem="kbf-ti-6bi" firstAttribute="leading" secondItem="ZBj-Hd-qfW" secondAttribute="leadingMargin" id="EeT-gd-XhM"/>
+                                        <constraint firstItem="kbf-ti-6bi" firstAttribute="trailing" secondItem="ZBj-Hd-qfW" secondAttribute="trailingMargin" id="Ojp-9N-zqy"/>
+                                        <constraint firstItem="kbf-ti-6bi" firstAttribute="top" secondItem="CbG-51-s45" secondAttribute="bottom" constant="8" id="ViH-cT-Te6"/>
+                                        <constraint firstItem="CbG-51-s45" firstAttribute="leading" secondItem="ZBj-Hd-qfW" secondAttribute="leadingMargin" id="xXj-gB-eJQ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="name" destination="CbG-51-s45" id="h8I-kO-cGb"/>
@@ -239,12 +262,82 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Server Detail" id="S8b-Ix-5b5">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="add" id="Pub-P7-q3b"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pub-P7-q3b">
+                            <connections>
+                                <segue destination="ChL-MP-oNL" kind="presentation" identifier="AddItem" id="3eW-Wp-E1N"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXn-WU-tup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="55" y="773"/>
+        </scene>
+        <!--Add Torrent-->
+        <scene sceneID="0CF-IT-FHx">
+            <objects>
+                <viewController id="tSv-mh-MQW" customClass="AddTorrentViewController" customModule="Overdrive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zWH-mB-bAD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yg-HL-WTp">
+                                <rect key="frame" x="16" y="104" width="60" height="30"/>
+                                <color key="backgroundColor" red="0.1803921568627451" green="0.49019607843137253" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dZq-t2-tXW"/>
+                                    <constraint firstAttribute="width" constant="60" id="uor-Gt-DZS"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Browse">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="browsePressed:" destination="tSv-mh-MQW" eventType="primaryActionTriggered" id="z7m-Xl-45E"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Torrent Path..." textAlignment="natural" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJf-r1-t5p">
+                                <rect key="frame" x="84" y="104" width="275" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Bpv-QS-17p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IJf-r1-t5p" firstAttribute="leading" secondItem="5yg-HL-WTp" secondAttribute="trailing" constant="8" id="2kf-oG-39s"/>
+                            <constraint firstItem="5yg-HL-WTp" firstAttribute="leading" secondItem="XJo-UT-FcP" secondAttribute="leading" constant="16" id="SfH-rQ-R4e"/>
+                            <constraint firstItem="5yg-HL-WTp" firstAttribute="top" secondItem="XJo-UT-FcP" secondAttribute="top" constant="16" id="ghB-eR-iPi"/>
+                            <constraint firstItem="IJf-r1-t5p" firstAttribute="top" secondItem="XJo-UT-FcP" secondAttribute="top" constant="16" id="mJe-sv-tZC"/>
+                            <constraint firstItem="XJo-UT-FcP" firstAttribute="trailing" secondItem="IJf-r1-t5p" secondAttribute="trailing" constant="16" id="su8-Uk-0Ss"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XJo-UT-FcP"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Torrent" id="JQf-wY-cpK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mWN-Ey-x3F">
+                            <connections>
+                                <segue destination="SCl-ew-l13" kind="unwind" unwindAction="unwindToTorrentListWithSender:" id="WgZ-aM-l2l"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="psB-ai-a5r">
+                            <connections>
+                                <segue destination="SCl-ew-l13" kind="unwind" unwindAction="unwindToTorrentListWithSender:" id="A4t-vl-OIf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="psB-ai-a5r" id="ZYR-8M-7p9"/>
+                        <outlet property="browseButton" destination="5yg-HL-WTp" id="A5q-wu-bI0"/>
+                        <outlet property="torrentPath" destination="IJf-r1-t5p" id="Gok-bv-nhH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wm7-vV-e67" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SCl-ew-l13" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="1492.6108374384237"/>
         </scene>
         <!--Pick Torrent Path-->
         <scene sceneID="ODq-mR-zzU">
@@ -318,6 +411,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8K-SJ-zvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="852" y="26"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Li-J4-aT3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ChL-MP-oNL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xqe-Ys-Zyx">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tSv-mh-MQW" kind="relationship" relationship="rootViewController" id="deW-M2-KFn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AhZ-sD-7VJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="48.799999999999997" y="1492.6108374384237"/>
         </scene>
     </scenes>
 </document>

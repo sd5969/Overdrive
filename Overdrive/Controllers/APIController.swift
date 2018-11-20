@@ -66,7 +66,7 @@ class APIController {
     
     static func getSessionId(for server: Server, completion: ((Result<String>) -> Void)?) {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "http"
+        urlComponents.scheme = server.scheme
         urlComponents.host = server.hostname
         urlComponents.port = server.port
         urlComponents.path = server.rootDirectory
@@ -127,7 +127,7 @@ class APIController {
     
     static func getTorrents(for server: Server, completion: ((Result<[Torrent]>) -> Void)?) {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "http"
+        urlComponents.scheme = server.scheme
         urlComponents.host = server.hostname
         urlComponents.port = server.port
         urlComponents.path = server.rootDirectory
@@ -197,7 +197,7 @@ class APIController {
     
     static func updateTorrentPath(server: Server, torrent: Torrent, path: Path, completion: ((Result<Bool>) -> Void)?) {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "http"
+        urlComponents.scheme = server.scheme
         urlComponents.host = server.hostname
         urlComponents.port = server.port
         urlComponents.path = server.rootDirectory
@@ -221,6 +221,67 @@ class APIController {
             ],
             "method": "torrent-set-location"
         ]
+        
+        var jsonData: Data
+        
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: json)
+        } catch {
+            fatalError("Unable to create JSON body payload")
+        }
+        
+        request.httpBody = jsonData
+        
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    fatalError("Could not cast response to HTTP response")
+                }
+                if let error = responseError {
+                    completion?(.failure(error))
+                } else if httpResponse.statusCode == 401 {
+                    completion?(.failure(APIError.Unauthorized))
+                } else if httpResponse.statusCode == 409 {
+                    completion?(.failure(APIError.InvalidSessionKey))
+                } else if httpResponse.statusCode == 200 {
+                    completion?(.success(true))
+                } else {
+                    let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Data was not retrieved from request"]) as Error
+                    completion?(.failure(error))
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    static func addTorrent(server: Server, torrentData: Data, completion: ((Result<Bool>) -> Void)?) {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = server.scheme
+        urlComponents.host = server.hostname
+        urlComponents.port = server.port
+        urlComponents.path = server.rootDirectory
+        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue(server.sessionKey, forHTTPHeaderField: "X-Transmission-Session-Id")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let creds = createCredentials(server: server)
+        if !creds.isEmpty {
+            request.addValue("Basic \(creds)", forHTTPHeaderField: "Authorization")
+        }
+        
+        // prepare json data
+        let json: [String: Any] = [
+            "arguments": [
+                "metainfo": torrentData.base64EncodedString()
+            ],
+            "method": "torrent-add"
+        ]
+        print(json)
         
         var jsonData: Data
         

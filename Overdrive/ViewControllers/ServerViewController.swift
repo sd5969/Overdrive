@@ -18,6 +18,7 @@ class ServerViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var port: UITextField!
     @IBOutlet weak var rootDirectory: UITextField!
+    @IBOutlet weak var useHttps: UISwitch!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     /*
@@ -46,6 +47,7 @@ class ServerViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             password.text = server.password
             port.text = String(server.port)
             rootDirectory.text = server.rootDirectory
+            useHttps.isOn = (server.scheme == "https")
         }
         
         // Enable the Save button only if the text field has a valid Server hostname.
@@ -111,10 +113,11 @@ class ServerViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         let usernameVal = username.text
         let passwordVal = password.text
         let portVal = Int(port.text ?? "9091")
+        let schemeVal = useHttps.isOn ? "https" : "http"
         let rootDirectoryVal = rootDirectory.text ?? nil
         
         // Set the server to be passed to ServerTableViewController after the unwind segue.
-        server = Server(nickname: nicknameVal, hostname: hostnameVal, username: usernameVal, password: passwordVal, port: portVal, rootDirectory: rootDirectoryVal, sessionKey: "")
+        server = Server(nickname: nicknameVal, hostname: hostnameVal, username: usernameVal, password: passwordVal, port: portVal, rootDirectory: rootDirectoryVal, scheme: schemeVal, sessionKey: "")
     }
     
     //MARK: Private Methods

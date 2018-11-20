@@ -19,6 +19,7 @@ class Server: NSObject, NSCoding {
     var password: String
     var port: Int
     var rootDirectory: String
+    var scheme: String
     var sessionKey: String
 
     //MARK: Archiving Paths
@@ -35,17 +36,19 @@ class Server: NSObject, NSCoding {
         static let password = "password"
         static let port = "port"
         static let rootDirectory = "rootDirectory"
+        static let scheme = "scheme"
         static let sessionKey = "sessionKey"
     }
     
     //MARK: Initialization
-    init?(nickname: String?, hostname: String, username: String?, password: String?, port: Int?, rootDirectory: String?, sessionKey: String?) {
+    init?(nickname: String?, hostname: String, username: String?, password: String?, port: Int?, rootDirectory: String?, scheme: String?, sessionKey: String?) {
         self.nickname = nickname ?? hostname
         self.hostname = hostname
         self.username = username ?? ""
         self.password = password ?? ""
         self.port = port ?? 9091
         self.rootDirectory = rootDirectory ?? "/transmission/rpc"
+        self.scheme = scheme ?? "http"
         self.sessionKey = sessionKey ?? ""
         
         // override in case rootDirectory was ""
@@ -63,6 +66,7 @@ class Server: NSObject, NSCoding {
         aCoder.encode(password, forKey: PropertyKey.password)
         aCoder.encode(port, forKey: PropertyKey.port)
         aCoder.encode(rootDirectory, forKey: PropertyKey.rootDirectory)
+        aCoder.encode(scheme, forKey: PropertyKey.scheme)
         aCoder.encode(sessionKey, forKey: PropertyKey.sessionKey)
     }
     
@@ -78,9 +82,10 @@ class Server: NSObject, NSCoding {
         let password = aDecoder.decodeObject(forKey: PropertyKey.password) as? String
         let port = aDecoder.decodeInteger(forKey: PropertyKey.port) as Int
         let rootDirectory = aDecoder.decodeObject(forKey: PropertyKey.rootDirectory) as? String
+        let scheme = aDecoder.decodeObject(forKey: PropertyKey.scheme) as? String
         let sessionKey = aDecoder.decodeObject(forKey: PropertyKey.sessionKey) as? String
         
         // Must call designated initializer.
-        self.init(nickname: nickname, hostname: hostname, username: username, password: password, port: port, rootDirectory: rootDirectory, sessionKey: sessionKey)
+        self.init(nickname: nickname, hostname: hostname, username: username, password: password, port: port, rootDirectory: rootDirectory, scheme: scheme, sessionKey: sessionKey)
     }
 }
