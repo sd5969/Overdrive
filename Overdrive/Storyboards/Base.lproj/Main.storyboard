@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TwU-s0-o8n">
-                                <rect key="frame" x="20" y="108" width="335" height="220"/>
+                                <rect key="frame" x="20" y="108" width="335" height="259"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Server Nickname (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w34-tm-fPd" userLabel="Server Nickname">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -113,12 +113,26 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Root Directory (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6ie-ca-02L" userLabel="Port">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Root Directory (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6ie-ca-02L" userLabel="Root Directory">
                                         <rect key="frame" x="0.0" y="190" width="335" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WA8-lS-odm">
+                                        <rect key="frame" x="0.0" y="228" width="335" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use HTTPS?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aw6-dZ-VkN">
+                                                <rect key="frame" x="0.0" y="0.0" width="278" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JCr-pO-EmX">
+                                                <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="6ie-ca-02L" secondAttribute="trailing" id="3b5-8e-eWR"/>
@@ -130,7 +144,9 @@
                                     <constraint firstItem="bVy-TT-ukf" firstAttribute="top" secondItem="Zii-tL-MG7" secondAttribute="bottom" constant="8" id="WSW-3X-BGn"/>
                                     <constraint firstItem="D0j-Kx-zWJ" firstAttribute="top" secondItem="bVy-TT-ukf" secondAttribute="bottom" constant="8" id="XFw-w6-Nc8"/>
                                     <constraint firstItem="6ie-ca-02L" firstAttribute="leading" secondItem="TwU-s0-o8n" secondAttribute="leadingMargin" id="YN0-Gj-ciq"/>
+                                    <constraint firstAttribute="trailing" secondItem="WA8-lS-odm" secondAttribute="trailing" id="aXj-NN-HNx"/>
                                     <constraint firstItem="bVy-TT-ukf" firstAttribute="leading" secondItem="TwU-s0-o8n" secondAttribute="leadingMargin" id="cL5-g9-wHv"/>
+                                    <constraint firstItem="WA8-lS-odm" firstAttribute="leading" secondItem="TwU-s0-o8n" secondAttribute="leading" id="cgz-Ig-Nve"/>
                                     <constraint firstItem="Zii-tL-MG7" firstAttribute="leading" secondItem="TwU-s0-o8n" secondAttribute="leadingMargin" id="h5o-JS-0dD"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="w34-tm-fPd" secondAttribute="trailing" id="jwO-Gj-pPX"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="S8e-V6-Fee" secondAttribute="trailing" id="lDG-bO-ioR"/>
@@ -168,6 +184,7 @@
                         <outlet property="port" destination="S8e-V6-Fee" id="edk-UN-yui"/>
                         <outlet property="rootDirectory" destination="6ie-ca-02L" id="FaM-yv-56f"/>
                         <outlet property="saveButton" destination="6hR-aD-Vah" id="l19-hK-UEu"/>
+                        <outlet property="useHttps" destination="JCr-pO-EmX" id="Wwn-FW-hDl"/>
                         <outlet property="username" destination="bVy-TT-ukf" id="xbp-yH-vp6"/>
                     </connections>
                 </viewController>
@@ -206,25 +223,31 @@
                             <tableViewCell clipsSubviews="YES" contentMode="TopLeft" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TorrentTableViewCell" rowHeight="65" id="H3w-fo-wQA" customClass="TorrentTableViewCell" customModule="Overdrive" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H3w-fo-wQA" id="ZBj-Hd-qfW" customClass="TorrentTableViewCell" customModule="Overdrive" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H3w-fo-wQA" id="ZBj-Hd-qfW">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Torrent Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbf-ti-6bi" userLabel="Torrent Location">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Torrent Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbf-ti-6bi" userLabel="Torrent Location">
                                             <rect key="frame" x="16" y="37" width="343" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Torrent Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbG-51-s45" userLabel="Torrent Name">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Torrent Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbG-51-s45" userLabel="Torrent Name">
                                             <rect key="frame" x="16" y="9" width="343" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CbG-51-s45" firstAttribute="trailing" secondItem="ZBj-Hd-qfW" secondAttribute="trailingMargin" id="Cfo-YX-VhM"/>
+                                        <constraint firstItem="CbG-51-s45" firstAttribute="top" secondItem="ZBj-Hd-qfW" secondAttribute="top" constant="9" id="Cy6-KC-3LK"/>
+                                        <constraint firstItem="kbf-ti-6bi" firstAttribute="leading" secondItem="ZBj-Hd-qfW" secondAttribute="leadingMargin" id="EeT-gd-XhM"/>
+                                        <constraint firstItem="kbf-ti-6bi" firstAttribute="trailing" secondItem="ZBj-Hd-qfW" secondAttribute="trailingMargin" id="Ojp-9N-zqy"/>
+                                        <constraint firstItem="kbf-ti-6bi" firstAttribute="top" secondItem="CbG-51-s45" secondAttribute="bottom" constant="8" id="ViH-cT-Te6"/>
+                                        <constraint firstItem="CbG-51-s45" firstAttribute="leading" secondItem="ZBj-Hd-qfW" secondAttribute="leadingMargin" id="xXj-gB-eJQ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="name" destination="CbG-51-s45" id="h8I-kO-cGb"/>
@@ -299,7 +322,7 @@
                                 <segue destination="SCl-ew-l13" kind="unwind" unwindAction="unwindToTorrentListWithSender:" id="WgZ-aM-l2l"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="psB-ai-a5r">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="psB-ai-a5r">
                             <connections>
                                 <segue destination="SCl-ew-l13" kind="unwind" unwindAction="unwindToTorrentListWithSender:" id="A4t-vl-OIf"/>
                             </connections>

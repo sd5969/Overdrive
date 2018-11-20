@@ -40,8 +40,8 @@ class PathTableViewController: UITableViewController {
         APIController.getSessionId(for: self.server!) { (result) in
             switch result {
             case .failure(let error):
-                print("Unable to update session key, will not load torrents. Error was: \(error.localizedDescription).")
-                let alert = UIAlertController(title: "Error", message: "Unable to update session key, will not load torrents.", preferredStyle: UIAlertController.Style.alert)
+                print("Unable to update session key, will not update torrent path. Error was: \(error.localizedDescription).")
+                let alert = UIAlertController(title: "Error", message: "Unable to update session key, will not update torrent path.", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Oh well", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 return
@@ -61,9 +61,9 @@ class PathTableViewController: UITableViewController {
                         }
                         print("Updated torrent path")
                     case .failure(let error):
-                        print("Error loading torrents: \(error.localizedDescription).")
+                        print("Error updating torrent path: \(error.localizedDescription).")
                         let alert = UIAlertController(title: "Error", message: "Error updating torrent path", preferredStyle: UIAlertController.Style.alert)
-                        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+                        alert.addAction(UIAlertAction(title: "Oh well", style: UIAlertAction.Style.default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                     }
                 }
